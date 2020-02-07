@@ -151,9 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="qx4.6 A1089.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="C.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
