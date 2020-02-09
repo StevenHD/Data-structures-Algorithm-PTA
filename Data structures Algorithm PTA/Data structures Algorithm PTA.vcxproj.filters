@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="qx10.4 A1087.cpp">
+    <ClCompile Include="qx10.4 A1087-1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
