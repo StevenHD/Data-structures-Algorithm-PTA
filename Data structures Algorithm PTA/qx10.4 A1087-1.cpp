@@ -32,7 +32,8 @@ bool vis[MAXV] = { false };
 map<string, int> cityToIndex;
 map<int, string> indexToCity;
 
-void Dijkstra(int s) {
+void Dijkstra(int s) 
+{
 	fill(shortDistance, shortDistance + MAXV, INF);
 	memset(maxNodeWeight, 0, sizeof(maxNodeWeight));
 	memset(numsOfShortestPath, 0, sizeof(numsOfShortestPath));
@@ -46,27 +47,37 @@ void Dijkstra(int s) {
 	numsOfShortestPath[s] = 1;
 	for (int i = 0; i < numsOfVerts; i++) 
 	{
-		int u = -1, MIN = INF;
+		int u = -1;
+		int MIN = INF;
 		for (int j = 0; j < numsOfVerts; j++)
 		{
 			if (vis[j] == false && shortDistance[j] < MIN)
 			{
-				u = j;
+				 u= j;
 				MIN = shortDistance[j];
 			}
 		}
 
-		if (u == -1) return;
+		if (u == -1) 
+			return;
+
 		vis[u] = true;
 
 		for (int v = 0; v < numsOfVerts; v++) 
 		{
+			//---v未被访问 && 以u为中介点使s到顶点v的最短距离d[v]更优，也就是不等于inf无穷大---
+			//---优化d[v]---
 			if (vis[v] == false && adjacencyMatrix[u][v] != INF) 
 			{
+				// 如果起点s经过u到达v的距离更短，相较于从起点s直接到达v，那么则覆盖最短距离
 				if (shortDistance[u] + adjacencyMatrix[u][v] < shortDistance[v]) 
 				{
+					// 覆盖更新时，不光要更新最短距离，点权也要更新
 					shortDistance[v] = shortDistance[u] + adjacencyMatrix[u][v];
 					maxNodeWeight[v] = maxNodeWeight[u] + nodeWeight[v];
+
+					// 下面这俩是最短路径的数量和最短路径上的顶点数
+					// 这俩为啥也要更新？还有呢个前驱pre[v]
 					numsOfShortestPath[v] = numsOfShortestPath[u];
 					numsOfVertsOnShortestPath[v] = numsOfVertsOnShortestPath[u] + 1;
 					pre[v] = u;
