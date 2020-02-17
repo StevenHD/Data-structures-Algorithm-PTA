@@ -154,7 +154,7 @@
     <ClInclude Include="C.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="qx 7.2 A1056.cpp" />
+    <ClCompile Include="qx 4.1 A1095.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

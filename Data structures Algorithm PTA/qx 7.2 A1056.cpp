@@ -69,7 +69,7 @@ int main()
 				q.pop();
 			}
 			//--把胜利的老鼠晋级--
-			q.push(k);
+			q.push(k);   // ？？？？
 		}
 
 		//--group只老鼠晋级，因此下轮总老鼠数为group--
